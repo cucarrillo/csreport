@@ -8,6 +8,7 @@ $USER_ADR = NULL;
 $USER_GUN = NULL;
 $USER_PFP = NULL;
 $USER_NME = NULL;
+$USER_LNK = NULL;
 
 // get user stats!
 function main()
@@ -47,21 +48,15 @@ function main()
 	global $USER_GUN;
 	global $USER_PFP;
 	global $USER_NME;
+	global $USER_LNK;
 
+	$USER_LNK = "https://steamcommunity.com/profiles/$userID";
 	$USER_PFP = $dataProfile["avatarfull"];
 	$USER_NME = $dataProfile["personaname"];
 	$USER_GUN = getUserMostUsedWeapon($dataStats);
-	
-	$kills = getStatFromValue($dataStats, "total_kills");
-	$deaths = getStatFromValue($dataStats, "total_deaths");
-	$USER_KDR = round($kills / $deaths, 2);
-
-	$shots = getStatFromValue($dataStats, "total_shots_fired");
-	$hits = getStatFromValue($dataStats, "total_shots_hit");
-	$USER_ACC = round(($hits / $shots) * 100);
-
-	$killsHS = getStatFromValue($dataStats, "total_kills_headshot");
-	$USER_ADR = round(($killsHS / $kills) * 100);
+	$USER_KDR = getUserKDR($dataStats);
+	$USER_ACC = getUserAccuracy($dataStats);
+	$USER_ADR = getUserHSP($dataStats);
 }
 
 main();
@@ -106,7 +101,7 @@ main();
 			</div>
 
 			<div class="content">
-				<a class="apfp" href="https://steamcommunity.com/id/ubaldocs">
+				<a class="apfp" href="<?php echo "$USER_LNK";?>">
 					<img class="pfp" src="<?php echo "$USER_PFP"?>"></img>
 				</a>
 			</div>

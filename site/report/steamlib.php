@@ -1,6 +1,7 @@
 <?php
 
 require "config.php";
+require "global.php";
 
 // returns a API call with CURL
 function callAPI($url)
@@ -48,7 +49,6 @@ function getSteamIDFromURL($url)
 	}
 	else { return NULL; }
 }
-
 
 // returns data (JSON) from the getPlayerSummaries API call
 // we really only use it to get data for one user
@@ -153,10 +153,32 @@ function getUserMostUsedWeapon($data)
 	return $bestGun;
 }
 
-function getUserKDR($data) {}
-function getUserADR($data) {}
-function getUser($data) {}
-// TODO add get headshot % function // maybe replace ADR with this
-// TODO make profile picture hyperlink to their steam profile
-// TODO display account create date
+// returns user Kill Death Ratio
+function getUserKDR($data)
+{
+	$kills = getStatFromValue($data, "total_kills");
+	$deaths = getStatFromValue($data, "total_deaths");
+	
+	return round($kills / $deaths, 2);
+}
+
+// returns user Head Shot Percentage
+function getUserHSP($data)
+{
+
+	$kills = getStatFromValue($data, "total_kills");
+	$killsHS = getStatFromValue($data, "total_kills_headshot");
+
+	return round(($killsHS / $kills) * 100);
+
+}
+
+// returns user accuracy
+function getUserAccuracy($data)
+{
+	$shots = getStatFromValue($data, "total_shots_fired");
+	$hits = getStatFromValue($data, "total_shots_hit");
+	return round(($hits / $shots) * 100);
+}
+
 ?>
