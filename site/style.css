@@ -1,0 +1,91 @@
+/* global settings */
+
+html
+{
+	font-family: "Courier New", Courier, monospace;
+	background-color: #171717;
+	color: #FFFFFF;
+}
+
+/* different title sizes */
+
+.title1 { font-size: 20px; }
+.title2 { font-size: 15px; }
+.title3 { font-size: 50px; }
+
+/* submit button */
+
+.submit { border-radius: 10px; }
+
+/* error color */
+.error { color: #A54242; }
+
+
+.textinput
+{
+	text-align: center;
+	width: 300px;
+	height: 100px;
+	border-radius: 10px;
+}
+
+/* put all content in here, for centering */
+
+.content
+{
+	display: flex;
+	justify-content: center;
+}
+
+/* profile picture */
+
+.pfp
+{
+	/* center */
+	margin: auto;
+	display: block;
+
+	/* looks */
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	border: solid;
+}
+
+.apfp
+{
+	text-decoration: none;
+	color: white;
+}
+
+.apfp:visited { color: #FFFFFF; }
+.apfp:active { color: #FFFFFF; }
+.apfp:hover { color: #FFFFFF; }
+
+/* circles of information around the profile picture */
+
+.bub
+{
+	/* center */
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+
+	/* looks */
+	border: solid;
+	border-radius: 50%;
+	width: 125px;
+	height: 125px;
+	background-color: #000000;
+}
+
+.bubtext { font-size: x-large; }
+.bubsub { font-size: x-small }
+
+/* hyperlinks */
+a { color: #8C9440; }
+
+a:visited { color: #8C9440; }
+a:active { color: #A54242; }
+a:hover { color: #B5BD68; }
