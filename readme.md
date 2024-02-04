@@ -10,4 +10,4 @@ Created using HTML, CSS, and PHP.
 Enter any Steam vanity username or steam community link to view that profiles statistics.
 
 ## Deploying
-Setup a webserver that supports PHP and move all files under site into the webservers file directory.
+Before doing anything you need to get a [Steam API Key](https://steamcommunity.com/dev/apikey). Once you have that update config.php in site/report/ with the key that you got from steam. After that you can setup a webserver that supports PHP and move all files under site into the webservers file directory.
