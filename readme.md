@@ -1,7 +1,7 @@
 # Counter-Strike Report
 View player statistics from Counter-Strike 2.
 
-[CHeck out the website here](https://csreport.cc)
+[Check out the website here](https://csreport.cc)
 
 ## About
 Created using HTML, CSS, and PHP.
